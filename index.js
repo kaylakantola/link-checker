@@ -1,11 +1,12 @@
 const getHtmlFromPages = require("./lib/get-html-from-pages");
 const getLinksFromHTMLs = require("./lib/get-links-from-htmls");
-const checkLinks = require("./lib/check-links");
+const getLinkStatuses = require("./lib/get-link-statuses");
 const { map } = require("ramda");
 
 const linkChecker = links =>
   getHtmlFromPages(links)
     .then(res => getLinksFromHTMLs(res))
+    .then(res => Promise.all(map(r => getLinkStatuses(r), res)))
     .then(res => console.log(res))
     .catch(e => console.log(e));
 
