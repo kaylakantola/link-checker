@@ -11,6 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
+    "node-html-parser": "^1.1.16",
     "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "tape": "^4.11.0"
   }
 }
